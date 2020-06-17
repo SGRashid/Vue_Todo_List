@@ -4,7 +4,7 @@
         <strong class="ml-3">{{todo.id}}</strong>
         <span class="ml-3" v-if="!todo.complited">{{ todo.title }}</span>
         <span class="ml-3" v-else style="text-decoration: line-through">{{ todo.title }}</span>
-        <button class="ml-auto">X</button>
+        <button class="btn btn-outline-danger border-0 ml-auto">&#10006;</button>
     </li>
 </template>
 <script>
