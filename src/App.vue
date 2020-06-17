@@ -14,7 +14,7 @@ export default {
     data() {
       return {
           todos: [
-              { id: 0, title: 'Купить пиво', complited: false },
+              { id: 0, title: 'Купить пиво', complited: true },
               { id: 1, title: 'Купить чипсы', complited: false },
               { id: 2, title: 'Купить табак для кальяна', complited: false },
               { id: 3, title: 'Купить сосиски', complited: false },

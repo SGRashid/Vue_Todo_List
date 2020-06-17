@@ -1,6 +1,8 @@
 <template>
     <li>
-        {{ todo.title }}
+        <input type="checkbox" v-model="todo.complited"/>
+        <span v-if="!todo.complited">{{ todo.title }}</span>
+        <span v-else style="text-decoration: line-through">{{ todo.title }}</span>
     </li>
 </template>
 <script>
