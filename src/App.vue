@@ -4,6 +4,7 @@
     <hr>
     <TodoList v-bind:todos="todos"
               v-on:remove-todo="removeTodo"
+              v-on:add-todo="addTodo"
     />
   </div>
 </template>
@@ -28,6 +29,9 @@ export default {
       TodoList
     },
     methods: {
+        addTodo(todo){
+            this.todos.push(todo);
+        },
         removeTodo(id) {
             this.todos = this.todos.filter(todo => todo.id !== id);
         }

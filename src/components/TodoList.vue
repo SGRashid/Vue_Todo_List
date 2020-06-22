@@ -6,25 +6,19 @@
                       :key="todo.id"
                       v-on:remove-todo="removeTodo($event)"
             />
-            <li>
-                <div class="input-group">
-                    <input class="form-control"
-                           v-model="newTodo"
-                           placeholder="Добавить задачу"
-                    />
-                    <button class="ml-3 btn btn-outline-success">&#10010;</button>
-                </div>
-            </li>
+            <add-todo @add-todo="addTodo"></add-todo>
         </ul>
     </div>
 </template>
 
 <script>
     import TodoItem from '@/components/TodoItem';
+    import AddTodo from '@/components/AddTodo';
     export default {
         props: ['todos'],
         components: {
-            TodoItem
+            TodoItem,
+            AddTodo
         },
         data() {
             return {
@@ -32,6 +26,10 @@
             }
         },
         methods: {
+            addTodo(todo) {
+                console.log(todo);
+                this.$emit('add-todo', todo);
+            },
             removeTodo(id) {
                 this.$emit('remove-todo', id);
             }
