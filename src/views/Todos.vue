@@ -3,11 +3,17 @@
         <h2>Todo app</h2>
         <hr>
         <Loader v-if="loading" />
-        <TodoList v-else
-                  v-bind:todos="todos"
-                  v-on:remove-todo="removeTodo"
-                  v-on:add-todo="addTodo"
-        />
+        <template v-else>
+            <select v-model="filter" class="custom-select col-md-2 mb-4">
+                <option value="all">All</option>
+                <option value="complited">Complited</option>
+                <option value="not-complited">Not complited</option>
+            </select>
+            <TodoList v-bind:todos="filtredTodos"
+                      v-on:remove-todo="removeTodo"
+                      v-on:add-todo="addTodo"
+            />
+        </template>
     </div>
 </template>
 
@@ -26,7 +32,15 @@
                     { id: 3, title: 'Купить сосиски', complited: false },
                     { id: 4, title: 'Купить хлеб', complited: false },
                 ],
-                loading: true
+                loading: true,
+                filter: 'all'
+            }
+        },
+        computed: {
+            filtredTodos() {
+                if (this.filter === 'complited') return this.todos.filter(t => t.complited);
+                if (this.filter === 'not-complited') return this.todos.filter(t => !t.complited);
+                return this.todos;
             }
         },
         methods: {
