@@ -25,9 +25,6 @@ export default {
             ]
         }
       },
-    components: {
-      TodoList
-    },
     methods: {
         addTodo(todo){
             this.todos.push(todo);
@@ -35,7 +32,15 @@ export default {
         removeTodo(id) {
             this.todos = this.todos.filter(todo => todo.id !== id);
         }
-    }
+    },
+    mounted() {
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+            .then(response => response.json())
+            .then(json => this.todos = json)
+    },
+    components: {
+      TodoList
+    },
 }
 </script>
 
