@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li class="w-100 mt-3">
         <form @submit.prevent="onSubmit">
             <div class="input-group">
                 <input class="form-control"
