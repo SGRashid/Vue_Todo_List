@@ -1,8 +1,8 @@
 <template>
   <div id="app">
       <h1>
-          <router-link to="/"></router-link>
-          <span>My app</span>
+          <router-link to="/"><i class="las la-home"></i></router-link>
+          <span class="ml-3">My app</span>
       </h1>
       <hr>
       <router-view />
@@ -18,4 +18,13 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+    .la-home {
+        font-size: 24px;
+        color: black;
+        width: 26px;
+    }
+    .la-home:hover {
+        font-size: 26px;
+        color: blue;
+    }
 </style>
