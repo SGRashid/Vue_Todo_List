@@ -1,8 +1,9 @@
 <template>
     <div class="todoList d-flex flex-column">
         <ul class="mx-auto d-flex flex-column align-items-start">
-            <TodoItem v-for="todo in todos"
+            <TodoItem v-for="(todo, i) in todos"
                       v-bind:todo="todo"
+                      v-bind:index="i"
                       :key="todo.id"
                       v-on:remove-todo="removeTodo($event)"
             />

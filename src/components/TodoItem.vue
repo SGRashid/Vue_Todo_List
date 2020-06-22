@@ -1,7 +1,7 @@
 <template>
     <li class="d-flex justify-content-start align-items-center">
         <input type="checkbox" v-model="todo.complited"/>
-        <!--<strong class="ml-3">{{todo.id}}</strong>-->
+        <strong class="ml-3">{{index + 1}}</strong>
         <span class="ml-3" v-bind:class="{complited: todo.complited}">{{ todo.title }}</span>
         <button class="btn btn-outline-danger border-0 ml-auto"
                 v-on:click="$emit('remove-todo', todo.id)"
@@ -14,7 +14,8 @@ export default {
        todo: {
            type: Object,
            required: true
-       }
+       },
+       index: Number
    }
 }
 </script>
